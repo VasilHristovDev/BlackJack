@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BlackJack Game</title>
+        <link rel="stylesheet" type="text/css" href="styles/styles_game.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAm5ubB4ODg26AgIB2gICAdoCAgHaAgIB2gICAfY6OjggAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANTU1lwAAAP8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/2JiYgMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICAgsQAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPz8/awoKCtYTExPFYWFhFUpKSmoBAQH9QEBACw4ODr0BAQHXFRUVqi0tLQgAAAAAAAAAAAAAAAAAAAAAAAAA/AAAAP8AAAD/AAAA/wAAAP8iIiLCBwcH6AAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAAAAAAAAAAAAArq6uKQAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wsLC9wAAAAAAAAAAICAgHEAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAADxAAAAAAAAAACoqKgzAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/CQkJ2wAAAAAAAAAAAAAAAAAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/2pqag8AAAAAAAAAAAAAAACJiYkaAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wYGBuYAAAAAAAAAAAAAAAAAAAAAAAAAAFtbWxcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wsLC8UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/y0tLSUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAPw/AAD+fwAA/n8AAPNHAADAAwAAwAEAAMABAADAAQAAwAMAAOADAADwBwAA+B8AAPw/AAD+fwAA//8AAA==" rel="icon" type="image/x-icon" />
+    </head>
+    <body>
+        <div id="game">
+            <button class='btn btn-light' onclick="Back()" id="BackBtn"><img src="icons/backIcon.png" id="icon"> Back</button>
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                  
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Welcome to the game!</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                     Hello, Player! Enjoy this simple prototype of the blackjack game!
+                    </div>
+                    
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-dismiss="modal" onclick="Start()">START</button>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+              <div id="sideBtns">
+                  <ul>
+                 <li><img src="UI/HitBtn.png" class="GameBtns" ></li>
+                <li><img src="UI/DoubleBtn.png" class="GameBtns"></li>
+                <li><img src="UI/StandBtn.png" class="GameBtns"></li>
+                </ul>
+              </div>
+              <div id="deck">
+                <img src="Cards/PNG/yellow_back.png" id="Deck_UI">
+              </div>
+              <div id="Computer">
+
+              </div>
+              <div id="Player">
+
+              </div>
+        </div>
+<script>
+    $(window).on('load',function(){
+    var delayMs = 1000; // delay in milliseconds
+
+    setTimeout(function(){
+        $('#myModal').modal('show');
+        }, delayMs);
+    });    
+    function Start(){
+
+    }
+    function Back(){
+        window.location = "Deck.html";
+    }
+     var output = document.getElementById("output");
+            function Card(name,color)
+            {
+                this.name = name;
+                this.color = color;  
+            }
+            function Computer(hand)
+            {
+                this.hand = hand;
+            }
+            function shuffleDeck(deck) {
+            for (var x = deck.length - 1; x > 0; x--) {
+                var holder = Math.floor(Math.random() * (x + 1));
+                var temp = deck[x];
+                deck[x] = deck[holder];
+                deck[holder] = temp;
+            }
+            return deck;
+        }
+            var Deck = [];
+            var current_card_index = 0;
+            for(var i =2;i<=14;i++)
+            {
+                
+                for(var j = 1;j<=4;j++)
+                {
+                    var newCard = new Card("","");
+                    switch(i)
+                    {
+                        case 11:
+                        newCard.name = "J";
+                        break;
+                        case 12:
+                        newCard.name = "Q";
+                        break;
+                        case 13: 
+                        newCard.name = "K";
+                        break;
+                        case 14:
+                        newCard.name = "A";
+                        break;
+                        default:
+                        newCard.name = i;
+                        break;
+                    }
+                 
+                   if(j==1)
+                   {
+                       newCard.color = "♦";
+                   }
+                   
+                   if(j==2)
+                   {
+                       newCard.color = "♥";
+                   }
+                   
+                   if(j==3)
+                   {
+                       newCard.color = "♠";
+                   }
+                   
+                   if(j==4)
+                   {
+                       newCard.color = "♣";
+                   }
+                    Deck[current_card_index] = newCard;
+                    current_card_index++;
+                }
+            }
+</script>
+    </body>
+</html>

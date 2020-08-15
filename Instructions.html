@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> How to play ?</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles/styles_Instructions.css">
+        <style>
+         
+        </style>
+        <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAm5ubB4ODg26AgIB2gICAdoCAgHaAgIB2gICAfY6OjggAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANTU1lwAAAP8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/2JiYgMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICAgsQAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPz8/awoKCtYTExPFYWFhFUpKSmoBAQH9QEBACw4ODr0BAQHXFRUVqi0tLQgAAAAAAAAAAAAAAAAAAAAAAAAA/AAAAP8AAAD/AAAA/wAAAP8iIiLCBwcH6AAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAAAAAAAAAAAAArq6uKQAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wsLC9wAAAAAAAAAAICAgHEAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAADxAAAAAAAAAACoqKgzAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/CQkJ2wAAAAAAAAAAAAAAAAAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/2pqag8AAAAAAAAAAAAAAACJiYkaAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wYGBuYAAAAAAAAAAAAAAAAAAAAAAAAAAFtbWxcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wsLC8UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/y0tLSUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAPw/AAD+fwAA/n8AAPNHAADAAwAAwAEAAMABAADAAQAAwAMAAOADAADwBwAA+B8AAPw/AAD+fwAA//8AAA==" rel="icon" type="image/x-icon" />
+    </head>
+    <body>
+        <div id="header">
+            <h1 id="mid">How to play?</h1>
+           
+        </div>
+        
+        <button id = "back" class="btn btn-light" onclick ="Back()"><img src="icons/backIcon.png" width="20px"> Back</button>
+        <div id="content" class="bg-light">
+            <div id="navbar">
+                <ul id="nav">
+                        <li><a href="#content">Rules</a></li>
+                        <li><a href="#About">About the game</a></li>
+                        <li><a href="#Video">Video</a></li>
+                        <li><a href="#About_Author">About the author</a></li>
+                
+                  
+                          
+                      </ul>
+                    </div>
+            <br>
+            <div id="Rules" class="">
+            <h2>BLACKJACK Rules</h2>
+            <img src="Images_Videos/blackjack.jfif" class="content-images img-fluid rounded">
+        <p id = "top"><b>Blackjack</b> is played with one or more <b>standard 52-card decks</b>, with each denomination assigned a point value.
+              The object for the player is to draw cards totaling closer to 21, without going over, than the dealer's cards.
+       Players are each dealt two cards, face up or down depending on the casino and the table. In the U.S., the dealer is also dealt two cards, normally one up (exposed) and one down (hidden). In most other countries, the dealer only receives one card face up. The value of cards two through ten is their pip value (2 through 10). Face cards (Jack, Queen, and King) are all worth ten. Aces can be worth one or eleven. A hand's value is the sum of the card values. Players are allowed to draw additional cards to improve their hands. A hand with an ace valued as 11 is called "soft", meaning that the hand will not bust by taking an additional card. The value of the ace will become one to prevent the hand from exceeding 21. Otherwise, the hand is called "hard".</p>
+       <p>Once all the players have completed their hands, it is the dealer's turn. 
+           The dealer hand will not be completed if all players have either busted or received blackjacks. 
+           The dealer then reveals the hidden card and must hit until the cards total up to 17 points. At 17 points or higher the dealer must stay.
+            (At most tables the dealer also hits on a "soft" 17, i.e. a hand containing an ace and one or more other cards totaling six.)
+             You are betting that you have a better hand than the dealer. The better hand is the hand where the sum of the card values is closer to 21 without exceeding 21. 
+             The detailed outcome of the hand follows:</p>     
+       <ul class="normal-list">
+           <li>If the player is dealt an Ace and a ten-value card (called a "blackjack" or "natural"), and the dealer does not, the player wins and usually receives a bonus.</li>
+           <li>If the player exceeds a sum of 21 ("busts"); the player loses, even if the dealer also exceeds 21.</li>
+           <li>If the dealer exceeds 21 ("busts") and the player does not; the player wins.</li>
+           <li>If the player attains a final sum higher than the dealer and does not bust; the player wins.</li>
+           <li>If both dealer and player receive a blackjack or any other hands with the same sum called a "push", no one wins.</li>
+        </ul>
+         </div>
+         <div id="About">
+        <h2>About the game </h2>
+        <img src="Images_Videos/about.jfif" class="content-images img-fluid rounded">
+        <p>The game I am developing is a newbie prototype of the casino one. I am currently working on it.<br>
+       The features that are going to be included in the protype are:</p>
+        <ul class="normal-list">
+            <li>Player vs Computer mode</li>
+            <li>Only Hit and Stand options</li>
+            <li>Simplified UI</li>
+
+        </ul>
+    </div>
+    <div id="Video">
+        <h2>Video Material</h2>
+        <iframe src="https://www.youtube.com/embed/qd5oc9hLrXg?controls=1"
+        allowFullScreen="allowFullScreen"
+        mozallowfullscreen="mozallowfullscreen" 
+        msallowfullscreen="msallowfullscreen" 
+        oallowfullscreen="oallowfullscreen" 
+        webkitallowfullscreen="webkitallowfullscreen">
+            </iframe>
+       
+
+    </div>
+    <div id="About_Author">
+        <h2>About the author</h2>
+        <img src="Images_Videos/Author.jpg" id="Author_img" class="content-images rounded-circle img-fluid">
+        <p>Hello everyone! My name is Vasil and I am a programming enthusiast. 
+        I have passion for web development and software development. 
+        Currently I am studying in Gabrovo, Bulgaria at PMG"Akademic Ivan Gyzelev".
+         In my free time I love hiking, playing video games and spinning fire.</p>
+        <p>Here you can find my social media:</p>
+        <ul id="about_list">
+            <a href="https://www.facebook.com/vasil.hristov.7165"><li class="links"><img src="icons/facebook.png" class="iconImg"></li></a>
+            <a href="https://www.instagram.com/vask0nti/"><li class="links"><img src="icons/instagram.png" class="iconImg"></li></a>
+            <a href="https://github.com/VasilHristovDev"> <li class="links"><img src="icons/github.png" class="iconImg"></li></a>
+            <a href="https://www.linkedin.com/in/васил-христов-ba60a41a7/"><li class="links"><img src="icons/linkedin.png" class="iconImg"></li></a>
+        </ul>
+    </div>
+       <footer> Made by Vasil Hristov with   <b>HTML</b><img src="icons/html.png" class="technologies">, <b>CSS</b><img src="icons/css.png" class="technologies">,<b> JavaScript</b><img src="icons/javascript.png" class="technologies">, <b>Bootstrap</b> <img src="icons/bootstrap.png" class="technologies"> and <b>Passion</b><img src="icons/heart.png" class="technologies"></footer>
+    </div>
+
+    <script>
+        function Back(){
+            window.location="Deck.html";
+        }
+        window.onscroll = function() {myFunction()};
+            var navbar = document.getElementById("navbar");
+            var sticky = navbar.offsetTop;
+            function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } else {
+                navbar.classList.remove("sticky");
+            }
+            }
+
+    </script>
+</body>
+</html>

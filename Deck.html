@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+           BLACKJACK
+        </title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles/styles_Loading.css">
+        <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAm5ubB4ODg26AgIB2gICAdoCAgHaAgIB2gICAfY6OjggAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANTU1lwAAAP8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/2JiYgMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICAgsQAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPz8/awoKCtYTExPFYWFhFUpKSmoBAQH9QEBACw4ODr0BAQHXFRUVqi0tLQgAAAAAAAAAAAAAAAAAAAAAAAAA/AAAAP8AAAD/AAAA/wAAAP8iIiLCBwcH6AAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAAAAAAAAAAAAArq6uKQAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wsLC9wAAAAAAAAAAICAgHEAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAADxAAAAAAAAAACoqKgzAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/CQkJ2wAAAAAAAAAAAAAAAAAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/2pqag8AAAAAAAAAAAAAAACJiYkaAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wYGBuYAAAAAAAAAAAAAAAAAAAAAAAAAAFtbWxcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wsLC8UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/y0tLSUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAPw/AAD+fwAA/n8AAPNHAADAAwAAwAEAAMABAADAAQAAwAMAAOADAADwBwAA+B8AAPw/AAD+fwAA//8AAA==" rel="icon" type="image/x-icon" />
+    </head>
+    <body>
+        <div id="header">
+            <div id="heading">
+                
+        <h1 id="h1">BlackJack</h1>
+   
+        <div id ="buttons">
+       <button id ="NewGameBtn" class = "btn btn-light" onclick="NewGame()">New Game</button>
+       <button id = "HowToBtn" class = "btn btn-light" onclick = "HowToPlay()">How to play</button>
+       <button id="QuitBtn" class = "btn btn-light" onclick="quit()">Quit</button>
+       <video autoplay muted loop id="myVideo">
+        <source src="Images_Videos/VideoBckg.mp4" type="video/mp4">
+      </video>
+       
+        </div>
+        <br>
+        </div>
+     
+        <div id="output"></div>
+     
+      
+        <script>
+            function NewGame(){
+                window.location = "TheGame.html";
+            }
+            function quit(){
+                  
+                if (confirm("Close Window?")) {
+                    window.close();
+                };
+
+            }
+            function HowToPlay(){
+                
+           
+                window.location = "Instructions.html";
+                
+            }
+           
+           //Стар Блок код
+           /* var Players_Arr = [];
+            function Player(hand)
+            {
+                this.hand = hand;   
+            }
+            var num_players = Number(prompt("How many players do you want?"));
+            var num_ofcards = Deck.length / num_players;
+            num_ofcards = Math.floor(num_ofcards);
+            Deck = shuffleArray(Deck);
+            var del_counter = 0;
+            
+            for(var current_P=0;current_P<num_players;current_P++)
+            {
+                var NewPlayer = new Player("");
+                for(var current_card = 0;current_card<num_ofcards;current_card++)
+                {
+                    NewPlayer.hand += Deck[current_card].name + Deck[current_card].color + " ";
+
+                }
+                
+                while(true)
+                {
+                    if(del_counter==num_ofcards)
+                    {
+                        del_counter=0;
+                        break;
+                    }
+                    else
+                    {
+                        Deck.shift(0);
+                        
+                    }
+                    del_counter++;
+                }
+                Players_Arr[current_P]= NewPlayer;
+            }
+           
+            var P;
+            for(P in Players_Arr)
+            {
+                output.innerHTML += "<br>" + "Player"+(++P)+": ";
+                --P;
+                for(var i =0; i<Players_Arr[P].hand.length;i++)
+                output.innerHTML += Players_Arr[P].hand[i];
+            }
+            if(Array.isArray(Deck)&&Deck.length)
+            {
+                output.innerHTML+= "<br>"+"Cards left:" + "<br>";
+               
+               for(var i =0;i<Deck.length;i++)
+               {
+                   output.innerHTML += " " +Deck[i].name +" "+ Deck[i].color;
+               }
+            }
+            */
+            
+          
+       
+        </script>
+    </body>
+</html>
