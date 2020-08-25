@@ -19,7 +19,7 @@
            
         </div>
         
-        <button id = "back" class="btn btn-light" onclick ="Back()"><img src="icons/backIcon.png" width="20px"> Back</button>
+        <button id = "back" class="btn btn-light" onclick ="back()"><img src="icons/backIcon.png" width="20px"> Back</button>
         <div id="content" class="bg-light">
             <div id="navbar">
                 <ul id="nav">
@@ -36,10 +36,10 @@
             <div id="Rules" class="">
             <h2>BLACKJACK Rules</h2>
             <img src="Images_Videos/blackjack.jfif" class="content-images img-fluid rounded">
-        <p id = "top"><b>Blackjack</b> is played with one or more <b>standard 52-card decks</b>, with each denomination assigned a point value.
+        <p id = "top paragraph"><b>Blackjack</b> is played with one or more <b>standard 52-card decks</b>, with each denomination assigned a point value.
               The object for the player is to draw cards totaling closer to 21, without going over, than the dealer's cards.
        Players are each dealt two cards, face up or down depending on the casino and the table. In the U.S., the dealer is also dealt two cards, normally one up (exposed) and one down (hidden). In most other countries, the dealer only receives one card face up. The value of cards two through ten is their pip value (2 through 10). Face cards (Jack, Queen, and King) are all worth ten. Aces can be worth one or eleven. A hand's value is the sum of the card values. Players are allowed to draw additional cards to improve their hands. A hand with an ace valued as 11 is called "soft", meaning that the hand will not bust by taking an additional card. The value of the ace will become one to prevent the hand from exceeding 21. Otherwise, the hand is called "hard".</p>
-       <p>Once all the players have completed their hands, it is the dealer's turn. 
+       <p id="paragraph">Once all the players have completed their hands, it is the dealer's turn. 
            The dealer hand will not be completed if all players have either busted or received blackjacks. 
            The dealer then reveals the hidden card and must hit until the cards total up to 17 points. At 17 points or higher the dealer must stay.
             (At most tables the dealer also hits on a "soft" 17, i.e. a hand containing an ace and one or more other cards totaling six.)
@@ -56,7 +56,7 @@
          <div id="About">
         <h2>About the game </h2>
         <img src="Images_Videos/about.jfif" class="content-images img-fluid rounded">
-        <p>The game I am developing is a newbie prototype of the casino one. I am currently working on it.<br>
+        <p id="paragraph">The game I am developing is a newbie prototype of the casino one. I am currently working on it.<br>
        The features that are going to be included in the protype are:</p>
         <ul class="normal-list">
             <li>Player vs Computer mode</li>
@@ -77,7 +77,7 @@
        
 
     </div>
-    <div id="About_Author">
+    <div id="About_Author" class="text-center">
         <h2>About the author</h2>
         <img src="Images_Videos/Author.jpg" id="Author_img" class="content-images rounded-circle img-fluid">
         <p>Hello everyone! My name is Vasil and I am a programming enthusiast. 
@@ -85,7 +85,7 @@
         Currently I am studying in Gabrovo, Bulgaria at PMG"Akademic Ivan Gyzelev".
          In my free time I love hiking, playing video games and spinning fire.</p>
         <p>Here you can find my social media:</p>
-        <ul id="about_list">
+        <ul>
             <a href="https://www.facebook.com/vasil.hristov.7165"><li class="links"><img src="icons/facebook.png" class="iconImg"></li></a>
             <a href="https://www.instagram.com/vask0nti/"><li class="links"><img src="icons/instagram.png" class="iconImg"></li></a>
             <a href="https://github.com/VasilHristovDev"> <li class="links"><img src="icons/github.png" class="iconImg"></li></a>
@@ -96,20 +96,24 @@
     </div>
 
     <script>
-        function Back(){
+        function back(){
             window.location="Deck.html";
         }
-        window.onscroll = function() {myFunction()};
-            var navbar = document.getElementById("navbar");
-            var sticky = navbar.offsetTop;
-            function myFunction() {
+
+        window.onscroll = function() {
+            myFunction()
+        };
+        
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+        
+        function myFunction() {
             if (window.pageYOffset >= sticky) {
                 navbar.classList.add("sticky")
             } else {
                 navbar.classList.remove("sticky");
             }
-            }
-
+        }
     </script>
 </body>
 </html>

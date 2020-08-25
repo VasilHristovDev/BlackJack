@@ -12,7 +12,7 @@
     </head>
     <body>
         <div id="game">
-            <button class='btn btn-light' onclick="Back()" id="BackBtn"><img src="icons/backIcon.png" id="icon"> Back</button>
+            <button class='btn btn-light' onclick="back()" id="BackBtn"><img src="icons/backIcon.png" id="icon"> Back</button>
             <div class="modal fade" id="myModal">
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -30,7 +30,7 @@
                     
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" data-dismiss="modal" onclick="Start()">START</button>
+                        <button type="button" class="btn btn-dark" data-dismiss="modal" onclick="start()">START</button>
                     </div>
                     
                   </div>
@@ -47,10 +47,14 @@
                 <img src="Cards/PNG/yellow_back.png" id="Deck_UI">
               </div>
               <div id="Computer">
+                <ul id="CHand">
 
+                </ul>
               </div>
               <div id="Player">
-
+                <ul id="PHand">
+                  
+                </ul>
               </div>
         </div>
         <script src="Script/Game_Script.js"></script>

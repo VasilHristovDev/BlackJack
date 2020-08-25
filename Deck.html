@@ -20,8 +20,8 @@
         <h1 id="h1">BlackJack</h1>
    
         <div id ="buttons">
-       <button id ="NewGameBtn" class = "btn btn-light" onclick="NewGame()">New Game</button>
-       <button id = "HowToBtn" class = "btn btn-light" onclick = "HowToPlay()">How to play</button>
+       <button id ="NewGameBtn" class = "btn btn-light" onclick="newGame()">New Game</button>
+       <button id = "HowToBtn" class = "btn btn-light" onclick = "howToPlay()">How to play</button>
        <button id="QuitBtn" class = "btn btn-light" onclick="quit()">Quit</button>
        <video autoplay muted loop id="myVideo">
         <source src="Images_Videos/VideoBckg.mp4" type="video/mp4">
@@ -35,21 +35,21 @@
      
       
         <script>
-            function NewGame(){
+            function newGame()
+            {
                 window.location = "TheGame.html";
             }
-            function quit(){
-                  
+
+            function quit()
+            {
                 if (confirm("Close Window?")) {
                     window.close();
                 };
-
             }
-            function HowToPlay(){
-                
-           
-                window.location = "Instructions.html";
-                
+
+            function howToPlay()
+            {
+                window.location = "Instructions.html";    
             }
            
            //Стар Блок код

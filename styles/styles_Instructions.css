@@ -1,157 +1,147 @@
-h1{
+h1 {
     min-width: 200px;
-text-align: center;
-font-size: 70px;
-font-family: neon;
-color:white;
-
-margin-bottom: 30px;
+    text-align: center;
+    font-size: 70px;
+    font-family: deconi;
+    color:white;
+    margin-bottom: 30px;
+    background-color: #333;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
-@font-face {
-    font-family: "neon";
-    src: url("../Fonts/neon.ttf");
-}
-#content{
+#content {
     margin-left:10%;
     margin-right:10%;
     background-color:white;
     height:100%;
-    
-    
 }
-p{
+p#paragraph{
     text-indent: 55px;
     margin-left:30px;
     margin-right:30px;
-  
 }
-body{
-  
-
+body {
     background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp2468477.jpg&f=1&nofb=1");
 }
-#back{
+#back {
     position: fixed;
     top: 10px;
     left:20px;
     width: 7vw;
    
 }
-footer{
+footer {
    background-color: #333;
    text-align: center;
    color:white;
 }
 #nav {
-list-style-type: none;
-margin: 0;
-padding: 0;
-position: -o-sticky  ;
-position: sticky;
-text-align: center;
-overflow: hidden;
-background-color: #333;
-
-
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: -o-sticky  ;
+    position: sticky;
+    text-align: center;
+    overflow: hidden;
+    background-color: #333;
 }
-
 #nav li a:hover {
-background-color: #111;
-text-decoration: none;
-color:white;
+    background-color: #111;
+    text-decoration: none;
+    color:white;
 }
-#nav li{
+#nav li {
     float: left;
     min-width: 200px;
     width:25%;
-  
 }
 #nav li a {
-display: block;
-color: white;
-padding: 20px 28px;
-text-decoration: none;
+    display: block;
+    color: white;
+    padding: 20px 28px;
+    text-decoration: none;
 }
-h2{
-    font-family:neon;
+h2 {
+    font-family:deco;
     text-align: center;
     font-size: 50px;
 }
-.content-images{
-  width:70%;
-   display: block;
-   margin-left: auto;
-   margin-right: auto;
-   margin-top: 30px;
-   margin-bottom: 30px;
-
+.content-images {
+    width:70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
-.normal-list{
+.normal-list {
     margin-left:30px;
     margin-right:30px;
 }
-html{
+html {
     scroll-behavior: smooth;
 }
-iframe{
+iframe {
     display: block;
     border:0;
-  
     margin-left: auto;
     margin-right: auto;
     width: 60%;
     height: 400px;
     margin-bottom: 20px;
 }
-#Author_img
-{
+#Author_img {
     width:40%;
     height:30%;
 }
 .sticky {
-position: fixed;
-top: 0;
-width: 80%;
+    position: fixed;
+    top: 0;
+    width: 80%;
 }
-
 .sticky + #content {
-padding-top: 60px;
+    padding-top: 60px;
 }
-#About_Author p{
-margin-left:60px;
-margin-right: 60px;
+.links {
+    display: inline;
+    margin-left: 4px;
 }
-#about_list{
-display: block;
-text-decoration: none;
-margin-left: 10%;
-margin-right: auto;
-width: 100%;
+.iconImg {
+    height:32px;
+    width:32px;
 }
-.links{
-display: inline;
-margin-left: 4px;
-
+ul {
+    padding-inline-start: 0px !important;
 }
-.iconImg{
-height:32px;
-width:32px;
+.technologies {
+    width:30px;
+    height:30px;
 }
-.technologies{
-width:30px;
-height:30px;
+#header {
+    min-width: 100%;
+    min-height: 100%;
 }
-#header{
-min-width: 100%;
-min-height: 100%;
+#mid {
+    margin-top: 50px;
 }
-#mid{
-margin-top: 50px;
-}
-#myVideo{
-position: fixed;
-min-width: 100%;
+#myVideo {
+    position: fixed;
+    min-width: 100%;
     min-height: 100%;
     top: 0;
     z-index: 0;
+}
+
+@font-face {
+    font-family: "deco";
+    src: url("../Fonts/deco.otf");
+}
+@font-face {
+    font-family: "deconi";
+    src: url("../Fonts/deconi.otf")
+}
+p{
+    text-indent: 30px;
+    margin-left:40px;
+    margin-right: 40px;
 }
