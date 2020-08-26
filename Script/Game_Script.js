@@ -12,11 +12,17 @@ $(window).on('load',function(){
     {
         var deck = new Deck([]);
 
-        var player = new Player([]);
-        var computer = new Computer([]);
+        var player = new Player([],0);
+        var computer = new Computer([],0);
         deck = setDeck();
-        player = setParticipant(player, deck); 
+        player = setParticipant(player, deck);
+        var scoreboard = document.getElementById("Pscore");
+        scoreboard.innerHTML+=player.score;
+        console.log(player.score);
         computer = setParticipant(computer, deck);
+        var scoreboard = document.getElementById("Cscore");
+        scoreboard.innerHTML+=computer.score;
+        console.log(computer.score);
     }
     
 
@@ -45,7 +51,7 @@ $(window).on('load',function(){
             
             for(var j = 0;j<=3;j++)
             {
-                var newCard = new Card("","");
+                var newCard = new Card("","","");
                 switch(i)
                 {
                     case 11:
@@ -102,7 +108,9 @@ $(window).on('load',function(){
                 cards[holder] = temp;
             }
         };
-        
+        this.getFirstCardScore = function(){
+            return cards.shift(0).points;
+        }
 
         this.getFirstCard = function()
         {
@@ -126,8 +134,8 @@ $(window).on('load',function(){
         {
             this.hand.push(deck.getFirstCard());
             showCards("PHand","Pscore",deck);
-            this.score = deck.getFirstCard().points;
-            
+            this.score += deck.getFirstCardScore();
+         
 
         };
     }
@@ -142,7 +150,8 @@ $(window).on('load',function(){
         {
             this.hand.push(deck.getFirstCard());
             showCards("CHand","Cscore",deck);
-            this.score = deck.getFirstCard().points;
+            this.score += deck.getFirstCardScore();
+            
 
         };
         
@@ -155,7 +164,5 @@ $(window).on('load',function(){
             var cardImg = document.createElement("img");
             card.appendChild(cardImg);
             cardImg.setAttribute("src","../Cards/"+deck.getFirstCard()+".png");
-            var scoreboard = document.getElementById(id2);
-          
-            scoreboard.innerHTML = this.score;
+        
     }
