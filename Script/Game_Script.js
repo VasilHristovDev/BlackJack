@@ -1,46 +1,42 @@
 $(window).on('load',function(){
     var delayMs = 1000; // delay in milliseconds
-
+ 
     setTimeout(function(){
         $('#myModal').modal('show');
         }, delayMs);
     });
     var scoreP = 0;
     var scoreC = 0;
-
+ 
     function start()
     {
         var deck = new Deck([]);
-
+ 
         var player = new Player([],0);
         var computer = new Computer([],0);
         deck = setDeck();
         player = setParticipant(player, deck);
-        var scoreboard = document.getElementById("Pscore");
-        scoreboard.innerHTML+=player.score;
-        console.log(player.score);
+        showScore("Pscore",player.score);
         computer = setParticipant(computer, deck);
-        var scoreboard = document.getElementById("Cscore");
-        scoreboard.innerHTML+=computer.score;
-        console.log(computer.score);
+        showScore("Cscore",computer.score);
     }
     
-
+ 
     function back()
     {
         window.location = "Deck.html";
     }
-
+ 
     function setParticipant(participant, deck)
     {
         for (var x = 0; x <= 1; x++) 
         {
             participant.addCard(deck);   
         }
-
+ 
         return participant;
     }
-
+ 
     function setDeck()
     {
         var deck = new Deck([]);
@@ -51,7 +47,7 @@ $(window).on('load',function(){
             
             for(var j = 0;j<=3;j++)
             {
-                var newCard = new Card("","","");
+                var newCard = new Card("","");
                 switch(i)
                 {
                     case 11:
@@ -81,23 +77,28 @@ $(window).on('load',function(){
                 current_card_index++;
             }
         }
-
+ 
         deck.shuffleDeck();
-
+ 
         return deck;
     }
-
-    function Card(name,color,points)
+ 
+    function Card(name,color)
     {
         this.name = name;
         this.color = color;
-        this.points = points;
+        this.points = 0;
+ 
+        this.cardToString = function()
+        {
+            return (this.name + this.color).toString()
+        }
     }
-
+ 
     function Deck(cards)
     {
         this.cards = cards;
-
+ 
         this.shuffleDeck = function()
         {
             for (var x = cards.length - 1; x > 0; x--) 
@@ -108,61 +109,63 @@ $(window).on('load',function(){
                 cards[holder] = temp;
             }
         };
-        this.getFirstCardScore = function(){
-            return cards.shift(0).points;
-        }
-
+ 
         this.getFirstCard = function()
         {
-            return (cards.shift(0).name+cards.shift(0).color).toString();
+            return cards.shift(0);
         };
     }
-
+ 
     function Player(hand,score)
     {
         this.hand = hand;
         this.score = score;
-        
-
+ 
         this.hit = function(deck)
         {
             this.hand.push(deck.getFirstCard());
-            
         };
         
         this.addCard = function(deck)
         {
-            this.hand.push(deck.getFirstCard());
-            showCards("PHand","Pscore",deck);
-            this.score += deck.getFirstCardScore();
-         
-
+            var newCard = deck.getFirstCard();
+ 
+            this.hand.push(newCard);
+            this.score += newCard.points;
+            
+            showCards("PHand", newCard.cardToString());
         };
     }
     function hit(player,deck){
         player.addCard(deck.getFirstCard());
     }
-
+ 
     function Computer(hand,score)
     {
         Player.call(this,hand,score);
+ 
         this.addCard = function(deck)
         {
-            this.hand.push(deck.getFirstCard());
-            showCards("CHand","Cscore",deck);
-            this.score += deck.getFirstCardScore();
-            
-
+            var newCard = deck.getFirstCard();
+ 
+            this.hand.push(newCard);
+            this.score += newCard.points;
+ 
+            showCards("CHand", newCard.cardToString());
         };
-        
     }
-    function showCards(id1,id2,deck)
+    function showCards(id1, cardName)
     {
             var player = document.getElementById(id1);
             var card = document.createElement("li");
             player.appendChild(card);
             var cardImg = document.createElement("img");
             card.appendChild(cardImg);
-            cardImg.setAttribute("src","../Cards/"+deck.getFirstCard()+".png");
+            cardImg.setAttribute("src","../Cards/" + cardName+".png");
         
+    }
+    function showScore(id,score)
+    {
+        var scoreboard = document.getElementById(id);
+        scoreboard.innerHTML+=score;
     }
