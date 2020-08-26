@@ -5,6 +5,8 @@ $(window).on('load',function(){
         $('#myModal').modal('show');
         }, delayMs);
     });
+    var scoreP = 0;
+    var scoreC = 0;
 
     function start()
     {
@@ -12,14 +14,11 @@ $(window).on('load',function(){
 
         var player = new Player([]);
         var computer = new Computer([]);
-
         deck = setDeck();
-
-        player = setParticipant(player, deck);
+        player = setParticipant(player, deck); 
         computer = setParticipant(computer, deck);
-  
-
     }
+    
 
     function back()
     {
@@ -40,51 +39,37 @@ $(window).on('load',function(){
     {
         var deck = new Deck([]);
         var current_card_index = 0;
-
+        let suites = ["D","H","S","C"];
         for(var i =2;i<=14;i++)
         {
             
-            for(var j = 1;j<=4;j++)
+            for(var j = 0;j<=3;j++)
             {
                 var newCard = new Card("","");
                 switch(i)
                 {
                     case 11:
                     newCard.name = "J";
+                    newCard.points = 10;
                     break;
                     case 12:
                     newCard.name = "Q";
+                    newCard.points = 10;
                     break;
                     case 13: 
                     newCard.name = "K";
+                    newCard.points = 10;
                     break;
                     case 14:
                     newCard.name = "A";
+                    newCard.points = 11;
                     break;
                     default:
-                    newCard.name = i;
+                    newCard.name = i.toString();
+                    newCard.points = i;
                     break;
                 }
-             
-                if(j==1)
-                {
-                   newCard.color = "D";
-                }
-               
-                if(j==2)
-                {
-                   newCard.color = "H";
-                }
-               
-                if(j==3)
-                {
-                   newCard.color = "S";
-                }
-               
-                if(j==4)
-                {
-                   newCard.color = "C";
-                }
+                newCard.color = suites[j];
                 
                 deck.cards[current_card_index] = newCard;
                 current_card_index++;
@@ -96,10 +81,11 @@ $(window).on('load',function(){
         return deck;
     }
 
-    function Card(name,color)
+    function Card(name,color,points)
     {
         this.name = name;
-        this.color = color;  
+        this.color = color;
+        this.points = points;
     }
 
     function Deck(cards)
@@ -116,16 +102,19 @@ $(window).on('load',function(){
                 cards[holder] = temp;
             }
         };
+        
 
         this.getFirstCard = function()
         {
-            return cards.shift(0).toString();
+            return (cards.shift(0).name+cards.shift(0).color).toString();
         };
     }
 
-    function Player(hand)
+    function Player(hand,score)
     {
         this.hand = hand;
+        this.score = score;
+        
 
         this.hit = function(deck)
         {
@@ -136,20 +125,37 @@ $(window).on('load',function(){
         this.addCard = function(deck)
         {
             this.hand.push(deck.getFirstCard());
-           var parent = document.getElementById("PHand");
-           var card = document.createElement("li");
-           parent.appendChild(card);
-           var img = document.createElement("img");
-           card.appendChild(img);
-           img.setAttribute("src","../Cards/"+deck.getFirstCard());
-           card.value = deck.getFirstCard();
-           card.text = deck.getFirstCard();
+            showCards("PHand","Pscore",deck);
+            this.score = deck.getFirstCard().points;
             
 
         };
     }
+    function hit(player,deck){
+        player.addCard(deck.getFirstCard());
+    }
 
-    function Computer(hand)
+    function Computer(hand,score)
     {
-        Player.call(this, hand);
+        Player.call(this,hand,score);
+        this.addCard = function(deck)
+        {
+            this.hand.push(deck.getFirstCard());
+            showCards("CHand","Cscore",deck);
+            this.score = deck.getFirstCard().points;
+
+        };
+        
+    }
+    function showCards(id1,id2,deck)
+    {
+            var player = document.getElementById(id1);
+            var card = document.createElement("li");
+            player.appendChild(card);
+            var cardImg = document.createElement("img");
+            card.appendChild(cardImg);
+            cardImg.setAttribute("src","../Cards/"+deck.getFirstCard()+".png");
+            var scoreboard = document.getElementById(id2);
+          
+            scoreboard.innerHTML = this.score;
     }
