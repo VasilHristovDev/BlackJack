@@ -7,18 +7,24 @@ $(window).on('load',function(){
     });
     var scoreP = 0;
     var scoreC = 0;
+    var globalP = new Player([],0);
+    var globalC = new Computer([],0);
+    var gDeck = new Deck([]);
+    var scoreboard;
+    
+    
  
     function start()
     {
-        var deck = new Deck([]);
+        
  
-        var player = new Player([],0);
-        var computer = new Computer([],0);
-        deck = setDeck();
-        player = setParticipant(player, deck);
-        showScore("Pscore",player.score);
-        computer = setParticipant(computer, deck);
-        showScore("Cscore",computer.score);
+       
+        gDeck = setDeck();
+        globalP = setParticipant(globalP, gDeck);
+        showScore("Pscore",globalP.score);
+        checkScore(globalP);
+        globalC = setParticipant(globalC, gDeck);
+        showScore("Cscore",globalC.score);
     }
     
  
@@ -88,7 +94,7 @@ $(window).on('load',function(){
         this.name = name;
         this.color = color;
         this.points = 0;
- 
+        
         this.cardToString = function()
         {
             return (this.name + this.color).toString()
@@ -123,7 +129,18 @@ $(window).on('load',function(){
  
         this.hit = function(deck)
         {
-            this.hand.push(deck.getFirstCard());
+            var newCard = deck.getFirstCard()
+            this.hand.push(newCard);
+            this.score += newCard.points;
+            checkScore(this);
+            if(checkScore(this))
+            {
+                showScore("Pscore","LOST");
+            }
+            else{
+            showScore("Pscore",this.score);
+            showCards("PHand", newCard.cardToString());
+            }
         };
         
         this.addCard = function(deck)
@@ -135,28 +152,34 @@ $(window).on('load',function(){
             
             showCards("PHand", newCard.cardToString());
         };
+        
     }
-    function hit(player,deck){
-        player.addCard(deck.getFirstCard());
-    }
+   
  
     function Computer(hand,score)
     {
         Player.call(this,hand,score);
- 
+        var counter = 0;
         this.addCard = function(deck)
         {
             var newCard = deck.getFirstCard();
  
             this.hand.push(newCard);
             this.score += newCard.points;
- 
-            showCards("CHand", newCard.cardToString());
+            if(counter==0)
+            {
+                showCards("CHand", "yellow_back");
+            }
+            else
+            {
+                showCards("CHand", newCard.cardToString());
+            }
+            counter++;
         };
     }
-    function showCards(id1, cardName)
+    function showCards(id, cardName)
     {
-            var player = document.getElementById(id1);
+            var player = document.getElementById(id);
             var card = document.createElement("li");
             player.appendChild(card);
             var cardImg = document.createElement("img");
@@ -166,6 +189,20 @@ $(window).on('load',function(){
     }
     function showScore(id,score)
     {
-        var scoreboard = document.getElementById(id);
-        scoreboard.innerHTML+=score;
+        scoreboard = document.getElementById(id);
+        scoreboard.innerHTML="Score:"+score;
     }
+    function checkScore(player)
+    {
+       if(player.score>21)
+       {
+        alert("BUSTED");
+        alert("Computer Wins");
+        return true;
+       }
+       if(player.score==21)
+       {
+        console.log("BLACKJACK!");
+       }     
+    }
+    
