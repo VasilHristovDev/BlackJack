@@ -52,62 +52,7 @@
                 window.location = "Instructions.html";    
             }
            
-           //Стар Блок код
-           /* var Players_Arr = [];
-            function Player(hand)
-            {
-                this.hand = hand;   
-            }
-            var num_players = Number(prompt("How many players do you want?"));
-            var num_ofcards = Deck.length / num_players;
-            num_ofcards = Math.floor(num_ofcards);
-            Deck = shuffleArray(Deck);
-            var del_counter = 0;
-            
-            for(var current_P=0;current_P<num_players;current_P++)
-            {
-                var NewPlayer = new Player("");
-                for(var current_card = 0;current_card<num_ofcards;current_card++)
-                {
-                    NewPlayer.hand += Deck[current_card].name + Deck[current_card].color + " ";
-
-                }
-                
-                while(true)
-                {
-                    if(del_counter==num_ofcards)
-                    {
-                        del_counter=0;
-                        break;
-                    }
-                    else
-                    {
-                        Deck.shift(0);
-                        
-                    }
-                    del_counter++;
-                }
-                Players_Arr[current_P]= NewPlayer;
-            }
-           
-            var P;
-            for(P in Players_Arr)
-            {
-                output.innerHTML += "<br>" + "Player"+(++P)+": ";
-                --P;
-                for(var i =0; i<Players_Arr[P].hand.length;i++)
-                output.innerHTML += Players_Arr[P].hand[i];
-            }
-            if(Array.isArray(Deck)&&Deck.length)
-            {
-                output.innerHTML+= "<br>"+"Cards left:" + "<br>";
-               
-               for(var i =0;i<Deck.length;i++)
-               {
-                   output.innerHTML += " " +Deck[i].name +" "+ Deck[i].color;
-               }
-            }
-            */
+         
             
           
        
